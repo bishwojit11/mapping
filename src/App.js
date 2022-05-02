@@ -1,22 +1,58 @@
-import logo from './logo.svg';
 import './App.css';
+import Counter from './Componenes/Counter';
+import Employees from './Componenes/Employees';
 
+const employeeInfo = [
+  {
+    firstName: "Salam",
+    lastName: "Uddin",
+    designation: "Head of Area",
+    age: 23
+  },
+  {
+    firstName: "Jack",
+    lastName: "Smith",
+    designation: "Field Agent",
+    age: 21
+  },
+  {
+    firstName: "Kuddus",
+    lastName: "Ali",
+    designation: "Head of Upazilla",
+    age: 22
+  },
+  {
+    firstName: "Bakkar",
+    lastName: "Uddin",
+    designation: "Head of Area",
+    age: 23
+  },
+]
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+
+        <Counter/>
+       
+        {/* Method 1  */}
+       {employeeInfo.map((employee) => {
+         return(
+           <Employees {...employee}/>
+         )
+       })}
+
+       {/* Method 2 */}
+
+       {/* {employeeInfo.map(employee => {
+         const {firstName, lastName,designation, age } = employee;
+         return (
+           <Employees firstName={firstName} lastName={lastName} designation={designation} age={age}/>
+         )
+       })} */}
+       
+        
+        
       </header>
     </div>
   );
